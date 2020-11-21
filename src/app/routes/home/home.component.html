@@ -1,0 +1,15 @@
+<div class="landing-cover">
+<div class="overlay search">
+  <form class="search-form">
+    <mat-form-field class="search-bar" color="primary" appearance="fill">
+      <input type="text" placeholder="Search" aria-label="Search" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-icon matSuffix class="cursor-pointer" (click)="searchFood(myControl.value)">search</mat-icon>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions" [value]="option" (click)="searchFood(myControl.value)">
+          {{option?.strMeal}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+</div>

@@ -1,0 +1,30 @@
+.img-div {
+  width: 25%;
+  height: 200px;
+}
+.meal-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.page-title {
+  color: chocolate;
+}
+.heading {
+  font-weight: 500;
+  text-decoration: underline;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+
+.margin-xs {
+  margin: 8px;
+}
+.loader-class {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin-top: 16px;
+}

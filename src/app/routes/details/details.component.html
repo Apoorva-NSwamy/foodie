@@ -1,0 +1,43 @@
+<div  *ngIf="loader" class="loader-class">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-container *ngIf="!loader">
+  <div class="meal-card">
+    <img class="img-div" [src]="mealData?.strMealThumb" [alt]="mealData?.strMeal"/>
+    <div>
+      <h1 class="mat-display-1 page-title margin-xs">{{mealData?.strMeal}}</h1>
+      <div *ngIf="mealData?.strCategory" style="display: flex;margin-left:8px;align-items: center;">
+        <p class="mat-body-strong">Category :</p>
+        <p style="margin-left:4px;">{{mealData?.strCategory}}</p>
+      </div>
+      <div *ngIf="mealData?.strArea" style="display: flex;margin-left:8px;align-items: center;">
+        <p class="mat-body-strong">Cuisine :</p>
+        <p style="margin-left:4px;">{{mealData?.strArea}}</p>
+      </div>
+      <div *ngIf="mealData?.strTags" style="display: flex;margin-left:8px;align-items: center;">
+        <p class="mat-body-strong">Tags :</p>
+        <p style="margin-left:4px;">{{mealData?.strTags}}</p>
+      </div>
+      <div *ngIf="mealData?.strTags" style="display: flex;margin-left:8px;align-items: center;">
+        <p class="mat-body-strong">Watch here :</p>
+        <p style="margin-left:4px; cursor: pointer;" (click)="openDialog(mealData?.strYoutube, mealData?.strMeal)">{{mealData?.strYoutube}}</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin: 8px;">
+    <ng-container *ngIf="ingredientsList?.length > 0">
+      <h4 class="heading">WHAT DO YOU NEED ?</h4>
+      <div *ngFor="let ingredient of ingredientsList">
+        <span *ngIf="ingredient?.name">{{ingredient?.name}}</span>
+        <span *ngIf="ingredient?.name">:</span>
+        <span *ngIf="ingredient?.quantity" style="margin-left:8px;">{{ingredient?.quantity}}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="mealData?.strInstructions">
+      <h4 class="heading">WHAT TO DO ? </h4>
+      <p class="margin-xs ">
+        {{mealData?.strInstructions}}
+      </p>
+    </ng-container>
+  </div>
+</ng-container>
